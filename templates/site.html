@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        button[type="button"] {
+            background: transparent;
+            border: none;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    </style>
+     <script>
+        function selectDay(day) {
+            document.querySelector('input[name="day"]').value = day;
+            document.querySelector('form[id="date-form"]').submit();
+        }
+        function deschidePaginaNoua() {
+    const url = '/event'; // Înlocuiți cu numele paginii dvs.
+    window.location.href = url;
+}
+    </script>
+</head>
+<body>
+    <h1>Calendar App</h1>
+    
+    <form method="POST">
+        <label for="year">An:</label>
+        <input type="number" name="year" id="year" value="{{ year }}" min="1900" max="2100">
+        <label for="month">Luna:</label>
+        <input type="number" name="month" id="month" value="{{ month }}" min="1" max="12">
+        <button type="submit">Afișează</button>
+    </form>
+    
+    
+
+    
+    <div class="calendar">
+        <div class="month">
+            <h2>{{ month_name }} {{ year }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>L</th>
+                        <th>M</th>
+                        <th>M</th>
+                        <th>J</th>
+                        <th>V</th>
+                        <th>S</th>
+                        <th>D</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for week in calendar %}
+                        <tr>
+                            {% for day in week %}
+                                <td {% if day == 0 %}class="empty"{% endif %}>
+                                    {% if day != 0 %}
+                                    <form method="GET" action="/view_event/{{ year }}/{{ month }}/{{ day }}">
+                                        <button type="button" onclick="deschidePaginaNoua()">{{ day }}</button>
+
+                                    </form>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+    
+    <h2>Adaugă Eveniment</h2>
+
+    <form method="POST" action="{{ url_for('index', year=year, month=month) }}">
+        <input type="hidden" name="year" value="{{ year }}">
+        <input type="hidden" name="month" value="{{ month }}">
+        <input type="text" name="event_name" placeholder="Nume eveniment">
+        <input type="date" name="event_date" placeholder="Data evenimentului">
+        <button type="submit">Adaugă</button>
+    </form>
+</body>
+</html>

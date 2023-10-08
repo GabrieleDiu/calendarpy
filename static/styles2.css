@@ -1,0 +1,59 @@
+/* styles.css */
+
+/* Stil pentru întregul corp al paginii */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/* Stil pentru antetul paginii */
+h1 {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Stil pentru secțiunea cu datele selectate */
+h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Stil pentru tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+/* Stil pentru antetul tabelului */
+th {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Stil pentru rândurile tabelului */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Stil pentru butoane */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Stil pentru butoane la hover */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}

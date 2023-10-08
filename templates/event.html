@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Selectată</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+</head>
+<body>
+    <h1>Evenimente </h1>
+
+    <h2>Data selectată 14.09.2022</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Eveniment</th>
+                <th>Detalii</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <td>incercare</td>
+                <td></td>
+            </tr>
+         
+        </tbody>
+    </table>
+    <form method="POST" action="/">
+        <button type="submit" name="clear">Șterge Evenimentele</button>
+        <button type="submit" name="clear">Modificare</button>
+    </form>
+</body>
+</html>

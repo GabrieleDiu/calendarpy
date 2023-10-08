@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar App</title>
+</head>
+<body>
+    <h1>Calendar App</h1>
+    
+    <form method="POST">
+        <label for="year">An:</label>
+        <input type="number" name="year" id="year" value="{{ year }}" min="1900" max="2100">
+        <label for="month">Luna:</label>
+        <input type="number" name="month" id="month" value="{{ month }}" min="1" max="12">
+        <button type="submit">Afișează</button>
+    </form>
+    
+    <form method="POST" action="/">
+        <button type="submit" name="clear">Șterge Evenimentele</button>
+    </form>
+    
+    <table>
+        <!-- ... restul codului pentru calendar ... -->
+    </table>
+    
+    <h2>Evenimente</h2>
+    <ul>
+        {% for event in events %}
+            <li>{{ event }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Adaugă Eveniment</h2>
+    <form method="POST">
+        <input type="text" name="event_name" placeholder="Nume eveniment">
+        <button type="submit">Adaugă</button>
+    </form>
+</body>
+</html>
